@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.gradebook {
+	border: solid 1px black;
+	display: flex;
+}
+.student {
+	width: 200px;
+}
+.line {
+	display: flex;
+	gap: 2px;
+	border: solid 1px black;
+}
+
+.linemark {
+	overflow: hidden;
+	display: flex;
+}
