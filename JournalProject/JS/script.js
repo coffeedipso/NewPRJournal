@@ -83,3 +83,55 @@ blocks.forEach((block) => {
 		}
 	});
 });
+
+const nextButton = document.getElementById("next-btn");
+const backButton = document.getElementById("back-btn");
+
+let currentBlockIndex = 0;
+
+nextButton.addEventListener("click", () => {
+	currentBlockIndex += counterMarksBlocks;
+	addNewCellsToRows();
+	updateBlocksVisibility();
+});
+
+backButton.addEventListener("click", () => {
+	currentBlockIndex -= counterMarksBlocks;
+	if (currentBlockIndex < 0) {
+		currentBlockIndex = 0;
+	}
+	updateBlocksVisibility();
+});
+
+function addNewCellsToRows() {
+	const markLines = document.querySelectorAll(".marks .linemark");
+
+	markLines.forEach((line) => {
+		for (let i = 0; i < counterMarksBlocks; i++) {
+			let mark = document.createElement("input");
+			mark.setAttribute("type", "number");
+			line.appendChild(mark);
+		}
+	});
+}
+
+function updateBlocksVisibility() {
+	const markLines = document.querySelectorAll(".marks .linemark");
+
+	markLines.forEach((line) => {
+		const marks = line.querySelectorAll("input");
+		marks.forEach((mark, markIndex) => {
+			if (
+				markIndex >= currentBlockIndex &&
+				markIndex < currentBlockIndex + counterMarksBlocks
+			) {
+				mark.style.display = "block";
+			} else {
+				mark.style.display = "none";
+			}
+		});
+	});
+}
+
+updateBlocksVisibility();
+

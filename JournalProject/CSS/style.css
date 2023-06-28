@@ -2,16 +2,19 @@
 	margin: 0;
 	padding: 0;
 }
+
 .gradebook {
 	border: solid 1px black;
 	display: flex;
-margin-left: 20px;
-margin-right: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
+
 .student {
 	width: 200px;
-	
+
 }
+
 .line {
 	display: flex;
 	gap: 2px;
@@ -23,25 +26,29 @@ margin-right: 20px;
 	overflow: hidden;
 	display: flex;
 }
-input{
+
+input {
 	width: 39px;
 	height: 20px;
 }
-.aver{
+
+.aver {
 	border: solid 1px black;
 	display: flex;
 	flex-direction: column;
 }
-.sr{
+
+.sr {
 	display: flex;
 	gap: 2px;
 	border-top: solid 1px black;
 	height: 22px;
 	width: 42px;
 }
-.result{
+
+.result {
 	display: flex;
-flex-direction: column;
+	flex-direction: column;
 }
 
 /* 
@@ -50,8 +57,10 @@ flex-direction: column;
 } */
 
 input[type="number"] {
-	-moz-appearance: textfield; /* Firefox */
+	-moz-appearance: textfield;
+	/* Firefox */
 }
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
 	-webkit-appearance: none;
@@ -64,18 +73,19 @@ input[type="number"]::-webkit-inner-spin-button {
 	user-select: none;
 }
 
-.blockinfo{
+.blockinfo {
 	display: flex;
 	flex-direction: column;
 	margin: 20px;
 	margin-bottom: 25px;
 }
 
-button{
+button {
 	margin-left: 20px;
 	margin-top: 10px;
 }
-.dateBlocks{
+
+.dateBlocks {
 	border-top: solid 1px black;
 	border-left: solid 1px black;
 
@@ -83,15 +93,18 @@ button{
 	width: 42px;
 	border-radius: 2px;
 }
-.date{
+
+.date {
 	display: flex;
 	margin-left: 24px;
 	border-right: solid 1px black;
 	width: 1807px;
 }
-.d{
+
+.d {
 	margin-left: 40px;
 }
-.dateline{
-	display:flex ;
+
+.dateline {
+	display: flex;
 }
