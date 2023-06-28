@@ -20,6 +20,7 @@
 	gap: 2px;
 	border: solid 1px black;
 	height: 22px;
+	width: 200px;
 }
 
 .linemark {
@@ -96,15 +97,16 @@ button {
 
 .date {
 	display: flex;
-	margin-left: 24px;
-	border-right: solid 1px black;
-	width: 1807px;
+	margin-left: 91px;
+	/* border-right: solid 1px black; */
+	width: 1678px;
 }
 
 .d {
-	margin-left: 40px;
+	margin-left: 100px;
 }
 
 .dateline {
 	display: flex;
+	overflow: hidden;
 }

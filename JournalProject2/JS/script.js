@@ -1,11 +1,12 @@
-let Student = ["ggreger", "rkhwhkr", "h;length;lhl", 'helloworld'];
+
+let Student = ["Здесь", "Могла", "быть", 'ваша', 'реклама'];
 let gradebook = document.querySelector(".gradebook");
 let students = document.querySelector(".students");
 let aver = document.querySelector(".aver");
 let marks = document.querySelector(".marks");
 let result = document.querySelector(".result");
 let date = document.querySelector(".date");
-let counterMarksBlocks = 40;
+let counterMarksBlocks = 37;
 Student.forEach((st) => {
 	let line = document.createElement("div");
 	line.classList.add("line");
@@ -35,8 +36,9 @@ Student.forEach((st) => {
 });
 
 for (let i = 0; i < counterMarksBlocks + 2; i++) {
-	let dateBlocks = document.createElement("div");
-	dateBlocks.classList.add("dateBlocks");
+	let dateBlocks = document.createElement("input");
+	dateBlocks.setAttribute("type", "number");
+	dateBlocks.classList.add("res");
 	date.appendChild(dateBlocks);
 }
 
@@ -72,11 +74,21 @@ timeForm.addEventListener("keydown", (e) => {
 });
 
 
-let blocks = document.querySelectorAll("input");
+let blocks = marks.querySelectorAll("input");
 blocks.forEach((block) => {
 	block.addEventListener("input", () => {
 		let value = parseInt(block.value);
-		if (value > 5 || value < 2 || isNaN(value)) {
+		if (value > 5 || value < 2 || isNaN(value) || value == 0) {
+			block.value = "";
+		}
+	});
+});
+let dateline = document.querySelector(".dateline");
+let blocks2 = dateline.querySelectorAll("input");
+blocks2.forEach((block) => {
+	block.addEventListener("input", () => {
+		let value = parseInt(block.value);
+		if (value > 31 || value < 1 || isNaN(value) || value == 0) {
 			block.value = "";
 		}
 	});
@@ -145,43 +157,7 @@ function updateBlocksVisibility() {
 
 updateBlocksVisibility();
 
-// let linemark2 = document.querySelectorAll(".linemark");
-// let linemarkArray = Array.from(linemark2);
 
-// linemarkArray.forEach((linemark, i) => {
-// 	let marks = linemark.querySelectorAll("input");
-
-// 	marks.forEach((mark) => {
-// 		mark.addEventListener("input", () => {
-// 			let sum = 0;
-// 			let count = 0;
-
-// 			marks.forEach((m) => {
-// 				if (m.value !== "") {
-// 					sum += parseFloat(m.value);
-// 					count++;
-// 				}
-// 			});
-
-// 			let average = count > 0 ? sum / count : 0;
-// 			let roundedNum = Number(average.toFixed(1));
-
-// 			// Создать новый элемент span для отображения среднего значения
-// 			let averageElement = document.createElement("span");
-// 			linemark.appendChild(averageElement);
-// 			averageElement.textContent = `${i + 1}: ${roundedNum}`;
-
-// 			// Найти или создать контейнер, в который будет помещен средний элемент
-// 			// let container = linemark.querySelector(".average-container") || document.createElement("div");
-// 			// container.classList.add("average-container");
-// 			container.innerHTML = ""; // Очистить содержимое контейнера
-// 			container.appendChild(averageElement);
-
-// 			// Вставить контейнер после блока "linemark"
-// 			linemark.parentNode.insertBefore(container, linemark.nextSibling);
-// 		});
-// 	});
-// });
 
 let linemark2 = document.querySelectorAll(".linemark");
 let linemarkArray = Array.from(linemark2);
@@ -189,7 +165,6 @@ let linemarkArray = Array.from(linemark2);
 linemarkArray.forEach((linemark, i) => {
 	let marks = linemark.querySelectorAll("input");
 
-	// Создать новый элемент span для отображения среднего значения
 	let averageElement = document.createElement("span");
 	linemark.appendChild(averageElement);
 
@@ -208,7 +183,6 @@ linemarkArray.forEach((linemark, i) => {
 			let average = count > 0 ? sum / count : 0;
 			let roundedNum = Number(average.toFixed(1));
 
-			// Обновить текстовое содержимое элемента averageElement
 			averageElement.textContent = `${roundedNum}`;
 		});
 	});
