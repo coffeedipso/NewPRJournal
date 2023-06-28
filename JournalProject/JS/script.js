@@ -1,10 +1,11 @@
 let Student = ["ggreger", "rkhwhkr", "h;length;lhl", 'helloworld'];
-gradebook = document.querySelector(".gradebook");
-students = document.querySelector(".students");
-aver = document.querySelector(".aver");
-marks = document.querySelector(".marks");
-result = document.querySelector(".result");
-let counterMarksBlocks = 100;
+let gradebook = document.querySelector(".gradebook");
+let students = document.querySelector(".students");
+let aver = document.querySelector(".aver");
+let marks = document.querySelector(".marks");
+let result = document.querySelector(".result");
+let date = document.querySelector(".date");
+let counterMarksBlocks = 40;
 Student.forEach((st) => {
 	let line = document.createElement("div");
 	line.classList.add("line");
@@ -33,10 +34,14 @@ Student.forEach((st) => {
 	result.appendChild(res);
 });
 
+for (let i = 0; i < counterMarksBlocks + 2; i++) {
+	let dateBlocks = document.createElement("div");
+	dateBlocks.classList.add("dateBlocks");
+	date.appendChild(dateBlocks);
+}
 
 const timeForm = document.querySelector(".marks");
 const inputs = [...timeForm.querySelectorAll("input")];
-
 let currentActiveIndex = 0;
 inputs[currentActiveIndex].focus();
 inputs.forEach((input, index) =>
@@ -53,10 +58,10 @@ timeForm.addEventListener("keydown", (e) => {
 			direction = -1;
 			break;
 		case "ArrowUp":
-			direction = -100;
+			direction = -counterMarksBlocks;
 			break;
 		case "ArrowDown":
-			direction = 100;
+			direction = counterMarksBlocks;
 			break;
 		default:
 			return;
